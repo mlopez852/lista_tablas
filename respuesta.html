@@ -1,0 +1,85 @@
+<!DOCTYPE html">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+    </Head> 
+        <link rel="stylesheet" href="../Tarea4_DZC/css/nysl2.css">
+        <header>
+          <title>..::Recepcion Ingreso::..</title>
+            <div class="contenedor_flex1">
+                <div class="cabecera" >
+                    <h1>Northside Youth Soccer League</h1>
+                </div>
+
+                <div class="cabecera2">
+                    <h1>Informacón Ingresada</h1>
+                    <img src="../Tarea4_DZC/images/nysl_logo.png" alt="logo" width="260" height="260" class="logo">
+                </div>
+            </div>
+        </header>    
+    </head>
+    <body>
+             <div class="contenedor_izquierdo">
+            <ul>
+                <li><h3><a href="index.html">Home</a></h3></li>
+                <li><h3><a href="about.html">About</a></h3></li>
+                <li><h3><a href="games.html">Game Schedule</a></h3></li>
+                <li><h3><a href="rules.html">Ruler & Policies</a></h3></li>                                          
+                <li><h3><a href="formulario.html">Formulario Ingreso</a></h3></li> 
+                <li><h3><a href="contact.html">Contact</a></h3></li>
+            </ul>
+
+        </div>
+
+        <div class="contenedor_central"><br>
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                La información que enviaste desde tu formulario es la siguiente:</h3> 
+
+<table border="2" align=center width="350"  cellpadding="1" bordercolor="#C0C0C0">
+  <tr>
+    <th align="center">Nombre campo</th>
+    <th align="center">Valor campo</th>
+  </tr>
+ 
+
+<!-- estamos construyendo un script -->
+<script language="javascript">
+/*
+Esto es lenguaje javascript
+Acá mediante location.search devuelve la parte de consulta de una url, si la url
+es respuesta.thml?email=vcoronado@alarcon.com devolverá ?email=vcoronado@alarcon.com
+ver la siguiente url https://www.w3schools.com/jsref/prop_loc_search.asp  
+*/
+/*document.writeln('<tr>' + location.search + '</tr>');*/
+
+var args = location.search.substr(1).split('&');
+for (var i = 0; i < args.length; ++i) {
+  var parts = args[i].split('=');
+  if (parts != null) {
+    var field = parts[0];
+    var value = parts[1];
+    if (value == null) {
+      value = "null"
+    }
+    else {
+        //decodeUri() le quita los caracteres especiales que tiene una url por ejemplo %
+        //link https://www.w3schools.com/jsref/jsref_decodeuri.asp
+        //replace reemplaza en este caso el + por un espacio
+      value = '"' + decodeURI(value.replace(/\+/g, ' ')) + '"';
+      //value = '"' + decodeURI(value) + '"';
+    }
+
+    document.writeln('<tr><td align="center">' + field + '</td>');
+    document.writeln('<td align="center">' + value + '</td></tr>');
+  }
+}
+</script>
+</table><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </div>
+    </body>
+</html>
